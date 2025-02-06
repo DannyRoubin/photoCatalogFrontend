@@ -18,7 +18,7 @@ function HomePage() {
   async function fetchPhotoshoots() {
     try {
       const data = await getAllPhotoshoots();
-      setPhotoshoots(data); 
+      setPhotoshoots(Array.isArray(data) ? data : []); 
     } catch (error) {
       console.error("Error grabbing photoshoots:", error);
     }
@@ -27,7 +27,7 @@ function HomePage() {
   async function fetchLocations() {
     try {
       const data = await getAllLocations();
-      setLocations(data); 
+      setLocations(Array.isArray(data) ? data : []); 
     } catch (error) {
       console.error("Error grabbing locations:", error);
     }

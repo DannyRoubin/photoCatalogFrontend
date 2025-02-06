@@ -3,7 +3,7 @@ import Location from "../models/Location";
 
 export async function getAllLocations() {
   try {
-    const res = await axios.get("http://localhost:8080/location");
+    const res = await axios.get("https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/location");
     if (res.status !== 200) {
       throw new Error(`Network response was not ok: ${res.status} - ${res.statusText}`);
     }
@@ -16,7 +16,7 @@ export async function getAllLocations() {
 
 export async function getLocationById(id) {
     try {
-      const res = await axios.get(`http://localhost:8080/location/${id}`);
+      const res = await axios.get(`https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/location/${id}`);
       if (res.status !== 200) {
         throw new Error(`Network response was not ok: ${res.status} - ${res.statusText}`);
       }
@@ -30,7 +30,7 @@ export async function getLocationById(id) {
 
 export async function addLocation(newLocation) {
   try {
-    const res = await axios.post("http://localhost:8080/location", {
+    const res = await axios.post("https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/location", {
       locationName: newLocation,
     });
     if (res.status !== 200) {

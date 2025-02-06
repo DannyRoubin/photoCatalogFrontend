@@ -16,7 +16,7 @@ const NewPhotoshootPage = () => {
   async function fetchLocations() {
     try {
       const data = await getAllLocations();
-      setLocations(data);
+      setLocations(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching locations:", error);
     }

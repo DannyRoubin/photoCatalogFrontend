@@ -5,7 +5,7 @@ import Photo from '../models/Photo';
 // Get all photoshoots
 export async function getAllPhotoshoots() {
   try {
-    const response = await axios.get("http://localhost:8080/photoshoot");
+    const response = await axios.get("https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photoshoot");
     if (response.status !== 200) {
       console.log(`${response.status} - ${response.statusText}`);
     }
@@ -18,7 +18,7 @@ export async function getAllPhotoshoots() {
 // Get a specific photoshoot by ID
 export async function getPhotoshootById(id) {
   try {
-    const response = await axios.get(`http://localhost:8080/photoshoot/${id}`);
+    const response = await axios.get(`https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photoshoot/${id}`);
     if (response.status !== 200) {
       console.log(`${response.status} - ${response.statusText}`);
     }
@@ -32,7 +32,7 @@ export async function getPhotoshootById(id) {
 // Make a new photoshoot with a location
 export async function addPhotoshoot(date, locationID) {
   try {
-    const response = await axios.post("http://localhost:8080/photoshoot", {
+    const response = await axios.post("https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photoshoot", {
       locationID: locationID, 
       date: date,
     });
@@ -49,7 +49,7 @@ export async function addPhotoshoot(date, locationID) {
 // Add a photo to a photoshoot using the photoGUID
 export async function addPhotoToPhotoshoot(photoshootID, photoGUID) {
   try {
-    const response = await axios.post(`http://localhost:8080/photoshoot/${photoshootID}/addPhoto/${photoGUID}`);
+    const response = await axios.post(`https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photoshoot/${photoshootID}/addPhoto/${photoGUID}`);
     if (response.status !== 200) {
       console.log(`${response.status} - ${response.statusText}`);
     }
@@ -61,7 +61,7 @@ export async function addPhotoToPhotoshoot(photoshootID, photoGUID) {
 // Get all photos for a specific photoshoot
 export async function getAllPhotosForPhotoshoot(photoshootID) {
   try {
-    const response = await axios.get(`http://localhost:8080/photoshoot/${photoshootID}/photo`);
+    const response = await axios.get(`https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photoshoot/${photoshootID}/photo`);
     if (response.status !== 200) {
       console.log(`${response.status} - ${response.statusText}`);
     }

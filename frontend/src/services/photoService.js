@@ -3,7 +3,7 @@ import Photo from '../models/Photo';
 
 export async function getPhotoById(id) {
   try {
-    const res = await axios.get(`http://localhost:8080/photo/${id}`);
+    const res = await axios.get(`https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photo/${id}`);
     if (res.status !== 200) {
       throw new Error(`Network response was not ok: ${res.status} - ${res.statusText}`);
     }
@@ -18,7 +18,7 @@ export async function getPhotoById(id) {
 export async function sendPostRequest(fileName, selectedImage, imageDate) {
   try {
     // First, send metadata to backend to get photoID and photoGUID
-    const backendResponse = await axios.post("http://localhost:8080/photo", {
+    const backendResponse = await axios.post("https://photocatalog-cugzb9fpc3f9dggy.westus-01.azurewebsites.net/photo", {
       fileName: fileName,
       timeStamp: imageDate,
     });

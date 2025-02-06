@@ -32,7 +32,7 @@ function PhotoshootPage() {
       setLocationName(location.name); 
 
       const photos = await getAllPhotosForPhotoshoot(photoshootID);
-      setPhotos(photos);
+      setPhotos(Array.isArray(photos) ? photos : []);
     } catch (error) {
       console.error("Error fetching photoshoot details or photos:", error);
     }
@@ -50,7 +50,7 @@ function PhotoshootPage() {
       await addPhotoToPhotoshoot(photoshootID, photoData.photoGUID);
 
       const updatedPhotos = await getAllPhotosForPhotoshoot(photoshootID);
-      setPhotos(updatedPhotos);
+      setPhotos(Array.isArray(updatedPhotos) ? updatedPhotos : [])
     } catch (error) {
       console.error("Error uploading image:", error);
     }
